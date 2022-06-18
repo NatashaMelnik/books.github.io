@@ -33,6 +33,16 @@ const Books = function () {
     },
   ];
 
+  let all0 = +localStorage.getItem("all_page0");
+  let all1 = +localStorage.getItem("all_page1");
+  let all2 = +localStorage.getItem("all_page2");
+
+  let p0 = +localStorage.getItem("page0");
+  let p1 = +localStorage.getItem("page1");
+  let p2 = +localStorage.getItem("page2");
+
+  let green = [p0 / all0, p1 / all1, p2 / all2];
+
   return (
     <div>
       <div
@@ -48,7 +58,7 @@ const Books = function () {
       </div>
       {arr?.length ? (
         arr?.map((bookFr, key = "index") => (
-          <div key={bookFr.id}>
+          <div key={bookFr.id} style={{ marginBottom: "10px;" }}>
             <Card>
               <CardActionArea>
                 <div style={{ display: "flex" }}>
@@ -70,6 +80,29 @@ const Books = function () {
                       <Typography variant="body2" color="text.secondary">
                         {bookFr.author}
                       </Typography>
+                      <div
+                        style={{
+                          display: "flex",
+                          position: "absolute",
+                          bottom: 0,
+                          width: "100%",
+                        }}
+                      >
+                        <div
+                          style={{
+                            height: "10px",
+                            backgroundColor: "#75ff75",
+                            width: 60 * green[bookFr.id] + "%",
+                          }}
+                        ></div>
+                        <div
+                          style={{
+                            height: "10px",
+                            backgroundColor: "#C0C0C0",
+                            width: 60 - +green[bookFr.id] + "%",
+                          }}
+                        ></div>
+                      </div>
                     </CardContent>
                   </div>
                 </div>
