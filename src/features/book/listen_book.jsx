@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { texts } from "./text";
+import $ from "jquery";
 
 const ListenBook = () => {
   const { id } = useParams();
@@ -46,46 +47,62 @@ const ListenBook = () => {
     console.log("in tick");
     let element = "";
     let temp = a;
-    let lastIndex = 0;
+
     // setA(a + 1);
     a = a + 1;
-    // element = "<div>" + pages[a] + "</div>";
-    // document.getElementById("qwe").innerHTML = element;
+    let res = [];
+    const pagesA = pages[a];
+    let pageWords = pagesA.split(" ");
+    console.log(pageWords.length);
+    for (let i = 0; i < pageWords.length; i++) {
+      let d =
+        "<span style='color:grey; margin-left: 10px;'>" +
+        pageWords[i] +
+        "</span>";
+
+      res.push(d);
+    }
+    res = res.join(" ");
+    document.getElementById("qwe");
+    document.getElementById("qwe").innerHTML = "";
+    document.getElementById("qwe").innerHTML = res;
+
+    console.log(pagesA);
+    let utterance = new SpeechSynthesisUtterance(pagesA);
+    utterance.lang = "en-US";
+    speechSynthesis.speak(utterance);
+
+    // var voices = speechSynthesis.getVoices();
+    // console.log(voices);
+
+    // console.log("sfsdfsfsdf");
+
+    let lastIndex = 0;
+
+    let elements = $("#qwe").children();
 
     function colorWord() {
       console.log("incolorWord");
-      let res = [];
-      let pageWords = pages[a].split(" ");
-      console.log(pageWords.length);
-      for (let i = 0; i < pageWords.length; i++) {
-        let d = "";
+      console.log(lastIndex);
+      for (let i = 0; i < elements.length; i++) {
         if (i === lastIndex) {
-          d =
-            "<span style='margin-left: 10px;'>" +
-            pageWords[i] +
-            " " +
-            "</span>";
+          console.log("in if");
+          $(elements[i]).css("color", "black");
         } else {
-          d =
-            "<span style='color:grey; margin-left: 10px;'>" +
-            pageWords[i] +
-            " " +
-            "</span>";
+          $(elements[i]).css("color", "grey");
         }
-        res.push(d);
       }
-      res = res.join(" ");
-      //   console.log(res);
-      document.getElementById("qwe");
-      document.getElementById("qwe").innerHTML = "";
-      document.getElementById("qwe").innerHTML = res;
+
       lastIndex = lastIndex + 1;
     }
 
-    let c = setInterval(colorWord, 500);
+    let c = setInterval(colorWord, 200);
+    setPage(a);
+    localStorage.setItem("page0", page + "");
   }
 
-  setInterval(tick, 44000);
+  // setInterval(tick, 44000);
+  setInterval(tick, 17600);
 
   return (
     <div>
@@ -93,7 +110,6 @@ const ListenBook = () => {
         id="qwe"
         style={{
           display: "flex",
-          //   width: "60%",
           flexWrap: "wrap",
           objectFit: "fill",
         }}
