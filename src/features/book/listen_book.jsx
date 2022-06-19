@@ -67,15 +67,12 @@ const ListenBook = () => {
     document.getElementById("qwe").innerHTML = "";
     document.getElementById("qwe").innerHTML = res;
 
-    console.log(pagesA);
-    let utterance = new SpeechSynthesisUtterance(pagesA);
-    utterance.lang = "en-US";
-    speechSynthesis.speak(utterance);
+    // let utterance = new SpeechSynthesisUtterance(pagesA);
+    // utterance.lang = "en-US";
+    // speechSynthesis.speak(utterance);
 
     // var voices = speechSynthesis.getVoices();
     // console.log(voices);
-
-    // console.log("sfsdfsfsdf");
 
     let lastIndex = 0;
 
