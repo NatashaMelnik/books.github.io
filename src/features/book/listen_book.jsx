@@ -44,7 +44,7 @@ const ListenBook = () => {
   let a = page;
 
   function tick() {
-    console.log("in tick");
+    // console.log("in tick");
     let element = "";
     let temp = a;
 
@@ -53,7 +53,7 @@ const ListenBook = () => {
     let res = [];
     const pagesA = pages[a];
     let pageWords = pagesA.split(" ");
-    console.log(pageWords.length);
+    // console.log(pageWords.length);
     for (let i = 0; i < pageWords.length; i++) {
       let d =
         "<span style='color:grey; margin-left: 10px;'>" +
@@ -79,11 +79,11 @@ const ListenBook = () => {
     let elements = $("#qwe").children();
 
     function colorWord() {
-      console.log("incolorWord");
-      console.log(lastIndex);
+      // console.log("incolorWord");
+      // console.log(lastIndex);
       for (let i = 0; i < elements.length; i++) {
         if (i === lastIndex) {
-          console.log("in if");
+          // console.log("in if");
           $(elements[i]).css("color", "black");
         } else {
           $(elements[i]).css("color", "grey");
