@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/books.github.io/static/css/main.5af0326d.css",
+    "main.js": "/books.github.io/static/js/main.5cd33875.js",
+    "static/js/787.96a7194a.chunk.js": "/books.github.io/static/js/787.96a7194a.chunk.js",
+    "index.html": "/books.github.io/index.html",
+    "main.5af0326d.css.map": "/books.github.io/static/css/main.5af0326d.css.map",
+    "main.5cd33875.js.map": "/books.github.io/static/js/main.5cd33875.js.map",
+    "787.96a7194a.chunk.js.map": "/books.github.io/static/js/787.96a7194a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5af0326d.css",
+    "static/js/main.5cd33875.js"
+  ]
+}
