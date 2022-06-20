@@ -31,6 +31,22 @@ const Books = function () {
       image: "https://images-na.ssl-images-amazon.com/images/I/517MP6PAPRL.jpg",
       progress: 0,
     },
+    {
+      id: 3,
+      title: "Тіні забутих предків",
+      author: "Михайло Михайлович Коцюбинський",
+      image:
+        "https://images.1plus1.video/playlist-1/87804/5a86fd77e8845075339393df392cd9bf.220x330.jpg",
+      progress: 0,
+    },
+    {
+      id: 4,
+      title: "Les Misérables",
+      author: "Victor Hugo",
+      image:
+        "https://images-eu.ssl-images-amazon.com/images/I/41r1En8hvTL._SX342_SY445_QL70_ML2_.jpg",
+      progress: 0,
+    },
   ];
 
   let all0 = +localStorage.getItem("all_page0");
@@ -52,9 +68,22 @@ const Books = function () {
           alignItems: "center",
         }}
       >
-        <Typography variant="h5" gutterBottom component="div">
-          Мої книги
-        </Typography>
+        <header>
+          <Typography
+            variant="h5"
+            gutterBottom
+            component="h1"
+            style={{
+              fontSize: "70px",
+              fontWeight: "600",
+              backgroundImage: "linear-gradient(to left, #553c9a, #b393d3)",
+              color: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Мої книги
+          </Typography>
+        </header>
       </div>
       {arr?.length ? (
         arr?.map((bookFr, key = "index") => (
